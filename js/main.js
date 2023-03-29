@@ -23,6 +23,7 @@ wordInput.addEventListener('input', () => {
 buttonChange('게임시작');
 
 function run() {
+  isPlaying = true;
   time = GAME_TIME;
   // 함수를 1초마다 실행시켜주는 인터벌
   timeInterval = setInterval(countDown, 1000);
