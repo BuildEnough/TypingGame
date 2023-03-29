@@ -10,5 +10,6 @@ wordInput.addEventListener('input', ()=>{
   if(wordInput.value.toLowerCase() === wordDisplay.innerText.toLowerCase()) {
     score++;
     scoreDisplay.innerText = score;
+    wordInput.value = "";
   }
 })
