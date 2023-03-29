@@ -1,6 +1,7 @@
 // 사용변수
+const GAME_TIME = 3;
 let score = 0;
-let time = 3;
+let time = GAME_TIME;
 let isPlaying = false;
 let timeInterval;
 
@@ -22,12 +23,16 @@ wordInput.addEventListener('input', () => {
 buttonChange('게임시작');
 
 function run() {
+  time = GAME_TIME;
   // 함수를 1초마다 실행시켜주는 인터벌
   timeInterval = setInterval(countDown, 1000);
 }
 
 function countDown() {
   time > 0 ? time-- : isPlaying = false;
+  if(!isPlaying) {
+    clearInterval(timeInterval)
+  }
   timeDisplay.innerText = time;
 }
 
