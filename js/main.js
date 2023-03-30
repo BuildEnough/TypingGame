@@ -36,7 +36,7 @@ function run() {
 
 function checkStatus() {
   if(!isPlaying && time === 0) {
-    buttonChange("게임 종료")
+    buttonChange("게임 시작")
     clearInterval(checkInterval)
   }
 }
