@@ -58,6 +58,9 @@ function checkMatch () {
       score++;
       scoreDisplay.innerText = score;
       time = GAME_TIME;
+      // 소수점 나오기 때문에 floor 사용
+      const randomIndex = Math.floor(Math.random() * words.length);
+      wordDisplay.innerText = words[randomIndex]
     }
   }
 
