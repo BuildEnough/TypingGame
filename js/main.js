@@ -57,6 +57,7 @@ function checkMatch () {
       }
       score++;
       scoreDisplay.innerText = score;
+      time = GAME_TIME;
     }
   }
 
