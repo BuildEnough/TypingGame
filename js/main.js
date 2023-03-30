@@ -25,9 +25,12 @@ function init() {
 function run() {
   isPlaying = true;
   time = GAME_TIME;
+  wordInput.focus();
+  scoreDisplay.innerText = 0;
   // 함수를 1초마다 실행시켜주는 인터벌
   timeInterval = setInterval(countDown, 1000);
   checkInterval = setInterval(checkStatus, 50);
+  buttonChange('게임 중')
 }
 
 
