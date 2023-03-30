@@ -1,5 +1,5 @@
 // 사용변수
-const GAME_TIME = 3;
+const GAME_TIME = 9;
 let score = 0;
 let time = GAME_TIME;
 let isPlaying = false;
