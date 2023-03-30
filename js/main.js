@@ -23,6 +23,9 @@ function init() {
 
 // 게임 실행
 function run() {
+  if(isPlaying) {
+    return;
+  }
   isPlaying = true;
   time = GAME_TIME;
   wordInput.focus();
