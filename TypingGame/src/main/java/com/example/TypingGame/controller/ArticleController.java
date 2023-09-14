@@ -1,6 +1,7 @@
 package com.example.TypingGame.controller;
 
 import com.example.TypingGame.dto.ArticleForm;
+import com.example.TypingGame.entity.Article;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,7 +15,7 @@ public class ArticleController {
 
     @PostMapping("/articles/create")
     public String createArticle(ArticleForm articleForm) {
-        System.out.println(articleForm.toString());
+        Article article = articleForm.toEntity(); // articleform 객체의 toEntity() 메서드 호출
         return "";
     }
 }
