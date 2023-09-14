@@ -1,6 +1,7 @@
 package com.example.TypingGame.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -10,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor // 기본 생성자
 @ToString
@@ -21,5 +23,4 @@ public class Article {
     private String title;
     @Column
     private String content;
-
 }
