@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -44,5 +45,13 @@ public class ArticleController {
         model.addAttribute("article", articleEntity);
 
         return "articles/show";
+    }
+
+    @GetMapping("/articles")
+    public String index(Model model) {
+        List<Article> articleEntityList = articleRepository.findAll(); // ArrayList 대신 List로 업캐스팅
+
+        model.addAttribute("articleList", articleEntityList);
+        return "articles/index";
     }
 }
