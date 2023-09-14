@@ -11,7 +11,16 @@ public class ArticleForm {
         this.content = content;
     }
 
+    @Override
+    public String toString() {
+        return "ArticleForm{" +
+                "title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                '}';
+    }
+
     public Article toEntity() {
         return new Article(null, title, content);
     }
+
 }
