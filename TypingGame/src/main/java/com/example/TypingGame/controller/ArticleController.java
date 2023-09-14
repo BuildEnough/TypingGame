@@ -3,12 +3,14 @@ package com.example.TypingGame.controller;
 import com.example.TypingGame.dto.ArticleForm;
 import com.example.TypingGame.entity.Article;
 import com.example.TypingGame.repository.ArticleRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
+@Slf4j
 public class ArticleController {
     @Autowired
     private ArticleRepository articleRepository;
@@ -19,13 +21,13 @@ public class ArticleController {
 
     @PostMapping("/articles/create")
     public String createArticle(ArticleForm articleForm) {
-        System.out.println(articleForm.toString());
+        log.info(articleForm.toString());
 
         Article article = articleForm.toEntity(); // articleform 객체의 toEntity() 메서드 호출
-        System.out.println(article.toString());
+        log.info(article.toString());
 
         Article saved = articleRepository.save(article); // article 엔티티를 저장해 saved 객체에 반환
-        System.out.println(saved.toString());
+        log.info(saved.toString());
         return "";
     }
 }
