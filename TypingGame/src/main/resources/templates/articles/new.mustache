@@ -1,8 +1,14 @@
 {{>layouts/header}}
 
-<form action="container">
-    <input type="text">
-    <textarea name="" id="" cols="30" rows="10"></textarea>
+<form class="container">
+    <div class="mb-3">
+        <label class="form-label">제목</label>
+        <input type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">내용</label>
+        <textarea class="form-control" row="3"></textarea>
+    </div>
     <button type="submit">제출</button>
 </form>
 
