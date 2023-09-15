@@ -55,10 +55,34 @@ public class ArticleController {
         return "articles/index";
     }
 
-    @GetMapping("articles/{id}/edit")
+    @GetMapping("/articles/{id}/edit")
     public String edit(@PathVariable Long id, Model model) {
         Article articleEntity = articleRepository.findById(id).orElse(null);
         model.addAttribute("article", articleEntity);
         return "articles/edit";
+    }
+
+    @PostMapping("/articles/update")
+    public String update(ArticleForm articleForm) {
+        Article articleEntity = articleForm.toEntity(); // dto를 entity로 변환
+        log.info(articleEntity.toString());
+        Article target = articleRepository.findById(articleEntity.getId()).orElse(null); // DB에서 기존 데이터 가져오기
+
+        if (target != null) {
+            articleRepository.save(articleEntity);
+        }
+        return "redirect:/articles/" + articleEntity.getId();
+    }
+
+    @GetMapping("/articles/{id}/delete")
+    public String delete(@PathVariable Long id) {
+        log.info("삭제 요청");
+        Article target = articleRepository.findById(id).orElse(null);
+        log.info(target.toString());
+
+        if (target != null) {
+            articleRepository.delete(target);
+        }
+        return "redirect:/articles";
     }
 }
